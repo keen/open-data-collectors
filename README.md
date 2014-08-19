@@ -7,6 +7,8 @@ There are 2 ways to use this project:
 + Use the Keen IO Project ID and Read Key specified in each collector's documentation to use the data.
 + Capture the data yourself by cloning and deploying this repository pointing to your own project ID.
 
+Note: Install [keen-cli](https://github.com/keenlabs/keen-cli) to run example CLI queries.
+
 ### Collectors
 
 ##### Bitcoin Prices
