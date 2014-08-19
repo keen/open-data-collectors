@@ -24,6 +24,32 @@ price trends over time.
   + Read Key: `99a06e48fd7fb1279bc40995160eb0b61a9e0efaab8b651b029f0d895f77c0a804ba089282eff28bf8ad07f337422441d0542b7feaac9fea1e92fc153ee7efc51afad3276bda8d7754a338b349d540bfb402cba0dfdc82498c217054efd8abd0f47a0c0bc963bbdf0dc938c91b17d9f2`
   + Collection Name: `bitcoin-prices`
 
+**Example CLI Queries**
+
+Note: Make sure to set environment variables in `.env` or specify `--project` and `--read-key` parameters.
+
+```
+# price last 30 minutes piped to spark
+$ keen average -c bitcoin-prices -y "USD.averages.last" -t last_30_minutes -i minutely --spark | spark
+▄███▄▄▄▄▄▁▄▄▄▄▄▄▄▁▁▁▄▄▄▄██▄
+
+# highest USD price today
+$ keen maximum -c bitcoin-prices -y "USD.averages.last"
+481.77
+
+# total USD volume last 24 hours
+$ keen extraction -c bitcoin-prices --property-names "USD.averages.total_vol" --latest 1
+[
+  {
+    "USD": {
+      "averages": {
+        "total_vol": 38276.39
+      }
+    }
+  }
+]
+```
+
 ### Contributing
 
 More jobs! More open data sets!
